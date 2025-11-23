@@ -1,25 +1,16 @@
-<<<<<<< HEAD
 from log_parser import LogEntry
-
-
-loger = "auth.log"
 
 objects = []
 
+OpenFile = "assets/auth.log"
+
 try:
-    with open(loger, "r"):
-        for line in loger:
-            x = LogEntry(loger)
-            objects.append(x)
+    with open(OpenFile, "r") as logType:
+        for line in logType:
+            ObjectToAppend = LogEntry(line)
+            objects.append(ObjectToAppend)
 except FileNotFoundError:
     print("[!] The file must be in the same folder")
 
 for obj in objects:
     print(f"[+] Object: {obj.get_all_attributes()}")
-=======
-import re
-from log_parser import LogEntry
-
-
-
->>>>>>> main
