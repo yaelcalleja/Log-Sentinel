@@ -6,27 +6,27 @@ class LogEntry:
     # Defining the log-in class
     def __init__(self, raw_line_text):
         # In case the parser failes, default settings
-        self.__Logn = "Log 0"
-        self.__Date = "Jan 01 00:01:01"
-        self.__User = "Default"
-        self.__Status = "No-status"
-        self.__Ip = "0.0.0.0"
-        self.__Port = "0"
-        self.__Service = "No reachable"
+        self._Logn = "Log 0"
+        self._Date = "Jan 01 00:01:01"
+        self._User = "Default"
+        self._Status = "No-status"
+        self._Ip = "0.0.0.0"
+        self._Port = "0"
+        self._Service = "No reachable"
         # This build the values on every field
         self.__parse_the_line(raw_line_text)
 
     # The main function to build the values from the text
     def __parse_the_line(self, line):
-        self.__Logn = "Log"
+        self._Logn = "Log"
         # Dictionary to iterate for the searched value
         regexs = {
-            '__Date': r'^[A-Z]{1}[a-z]{2} [0-9]{2} (?:[0-9]{2}.){2}[0-9]{2}',
-            '__User': r'user ([a-z]+)',
-            '__Status': r'.([A-Z][a-z]{1,15} [a-z]{1,})',
-            '__Ip': r'(([0-9]{1,3}\.){3}[0-9]{1,3})',
-            '__Port': r'port ([0-9]{1,5})',
-            '__Service': r'([a-z]{1,6}[1-9]{1,5})$'
+            '_Date': r'^[A-Z]{1}[a-z]{2} [0-9]{2} (?:[0-9]{2}.){2}[0-9]{2}',
+            '_User': r'user ([a-z]+)',
+            '_Status': r'.( [A-Z][a-z]{1,15} [a-z]{1,})',
+            '_Ip': r'(([0-9]{1,3}\.){3}[0-9]{1,3})',
+            '_Port': r'port ([0-9]{1,5})',
+            '_Service': r'([a-z]{1,6}[1-9]{1,5})$'
         }
         # Iterating on every attribute
         # and changing it values for the regexs search results
@@ -48,27 +48,27 @@ class LogEntry:
 
     # Get the date.
     def get_date(self):
-        return self.__Date
+        return self._Date
 
     # Get the user.
     def get_user(self):
-        return self.__User
+        return self._User
 
     # Get the status.
     def get_status(self):
-        return self.__Status
+        return self._Status
 
     # Get the ipu.
     def get_ip(self):
-        return self.__Ip
+        return self._Ip
 
     # Get the port.
     def get_port(self):
-        return self.__Port
+        return self._Port
 
     # Get the service.
     def get_service(self):
-        return self.__Service
+        return self._Service
 
     def get_all_attributes(self):
-        return self.__Logn, self.__Date, self.__User, self.__Status, self.__Ip, self.__Port, self.__Service
+        return self._Logn, self._Date, self._User, self._Status, self._Ip, self._Port, self._Service
