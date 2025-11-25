@@ -1,0 +1,17 @@
+Oct 27 09:25:01 server-prod sshd[1102]: Failed password for invalid user admin from 103.22.14.5 port 22 ssh2
+Oct 27 09:25:05 server-prod sshd[1102]: Failed password for invalid user admin from 103.22.14.5 port 22 ssh2
+Oct 27 09:25:09 server-prod sshd[1102]: Failed password for invalid user admin from 103.22.14.5 port 22 ssh2
+Oct 27 09:30:11 server-prod sshd[1105]: Failed password for root from 202.89.5.120 port 45122 ssh2
+Oct 27 09:30:15 server-prod sshd[1105]: Failed password for root from 202.89.5.120 port 45122 ssh2
+Oct 27 09:30:17 server-prod sshd[1107]: Accepted password for yael from 192.168.1.150 port 51234 ssh2
+Oct 27 09:30:17 server-prod systemd-logind[789]: New session 12 of user yael.
+Oct 27 09:30:18 server-prod sshd[1107]: pam_unix(sshd:session): session opened for user yael by (uid=0)
+Oct 27 09:31:05 server-prod sudo[1125]:     yael : TTY=pts/0 ; PWD=/home/yael ; USER=root ; COMMAND=/usr/bin/apt update
+Oct 27 09:31:06 server-prod sudo[1125]: pam_unix(sudo:session): session opened for user root by yael(uid=0)
+Oct 27 09:31:45 server-prod sudo[1125]: pam_unix(sudo:session): session closed for user root
+Oct 27 09:33:02 server-prod sshd[1105]: Failed password for root from 202.89.5.120 port 45122 ssh2
+Oct 27 09:33:10 server-prod sshd[1105]: Disconnecting authenticating user root 202.89.5.120 port 45122: Too many authentication failures [preauth]
+Oct 27 09:35:01 server-prod sshd[1130]: Failed password for invalid user webuser from 103.22.14.5 port 22 ssh2
+Oct 27 09:40:22 server-prod sshd[1107]: pam_unix(sshd:session): session closed for user yael
+Oct 27 09:45:01 server-prod CRON[1150]: pam_unix(cron:session): session opened for user root by (uid=0)
+Oct 27 09:45:01 server-prod CRON[1150]: pam_unix(cron:session): session closed for user root
