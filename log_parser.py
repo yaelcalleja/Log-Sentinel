@@ -22,7 +22,7 @@ class LogEntry:
         # Dictionary to iterate for the searched value
         regexs = {
             '_Date': r'^[A-Z]{1}[a-z]{2} [0-9]{2} (?:[0-9]{2}.){2}[0-9]{2}',
-            '_User': r'user ([a-z]+)',
+            '_User': r'user ([a-z]+)|([a-z]+) from',
             '_Status': r'.( [A-Z][a-z]{1,15} [a-z]{1,})',
             '_Ip': r'(([0-9]{1,3}\.){3}[0-9]{1,3})',
             '_Port': r'port ([0-9]{1,5})',
@@ -35,7 +35,10 @@ class LogEntry:
             if match:
                 # We try to get only the capture group of the regex
                 try:
-                    found_value = match.group(1)
+                    if match.group(2):
+                        found_value = match.group(2)
+                    elif match.group(1):
+                        found_value = match.group(1)
                 # If there was no capture group, then get all the line
                 except IndexError:
                     found_value = match.group(0)
