@@ -1,0 +1,11 @@
+This branch is maded to fix an error ocurred on the research of regex.
+Sometimes the object don't found the regex on the text, this is because
+the regex on the method only have one option to search, this branch have
+the porpouse of fix this issue.
+
+Note: They are two options to fix it, the first one is use herency on the 
+class to made a new object with the especific regex you want to use,this
+must be the best option but, on a second hand, we can build exclusive regex
+on the blueprint, but this must be the most general regex ass posible to 
+preserve the posibility to use the blue print in mor than one log file.
+
