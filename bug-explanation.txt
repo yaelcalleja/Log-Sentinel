@@ -1,4 +1,4 @@
-This branch is maded to fix an error ocurred on the research of regex.
+This branch has been maded to fix an error ocurred on the research of regex.
 Sometimes the object don't found the regex on the text, this is because
 the regex on the method only have one option to search, this branch have
 the porpouse of fix this issue.
