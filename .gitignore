@@ -1,0 +1,16 @@
+# --- .gitignore ---
+
+# 1. Trash files dropped by python
+__pycache__/
+*.py[cod]
+
+# 2. To prevent possible data leaks
+assets/*.log
+*.log
+
+# 3. Enviroment variables
+.env
+
+# 4. IDEs folders
+.vscode/
+.idea/
