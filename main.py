@@ -1,4 +1,4 @@
-from log_parser import LogEntry
+from src.log_parser import LogEntry
 
 objects = []
 
