@@ -1,11 +1,9 @@
 import re
 
 
-# A general class for the login attempt.
-class LogEntry:
-    # Defining the log-in class
+class LogEntry:  # The father class maded to search for every important data on the file.
     def __init__(self, raw_line_text):
-        # In case the parser failes, default settings
+        # In case the parser failes, getting the default settings:
         self._Logn = "Log 0"
         self._Date = "Jan 01 00:01:01"
         self._User = "Default"
@@ -13,23 +11,23 @@ class LogEntry:
         self._Ip = "0.0.0.0"
         self._Port = "0"
         self._Service = "No reachable"
-        # This build the values on every field
-        self.__parse_the_line(raw_line_text)
+        self.__parse_the_line(raw_line_text)  # The method who search all the data
 
-    # The main function to build the values from the text
+    # The main method that builds the values from the text
     def __parse_the_line(self, line):
         self._Logn = "Log"
-        # Dictionary to iterate for the searched value
+        # Dictionary of regexs for each value in the class
         regexs = {
-            '_Date': r'^[A-Z]{1}[a-z]{2} [0-9]{2} (?:[0-9]{2}.){2}[0-9]{2}',
-            '_User': r'user ([a-z]+)|([a-z]+) from',
-            '_Status': r'.( [A-Z][a-z]{1,15} [a-z]{1,})',
-            '_Ip': r'(([0-9]{1,3}\.){3}[0-9]{1,3})',
-            '_Port': r'port ([0-9]{1,5})',
-            '_Service': r'([a-z]{1,6}[1-9]{1,5})$'
+            "_Date": r"^[A-Z]{1}[a-z]{2} [0-9]{2} (?:[0-9]{2}.){2}[0-9]{2}",
+            "_User": r"user ([a-z]+)|([a-z]+) from",
+            "_Status": r".( [A-Z][a-z]{1,15} [a-z]{1,})",
+            "_Ip": r"(([0-9]{1,3}\.){3}[0-9]{1,3})",
+            "_Port": r"port ([0-9]{1,5})",
+            "_Service": r"([a-z]{1,6}[1-9]{1,5})$",
         }
-        # Iterating on every attribute
-        # and changing it values for the regexs search results
+        """ 
+        Iterating on every attribute and changing the default values for the regexs results
+        """
         for key, regex in regexs.items():
             match = re.search(regex, line)
             if match:
@@ -74,4 +72,12 @@ class LogEntry:
         return self._Service
 
     def get_all_attributes(self):
-        return self._Logn, self._Date, self._User, self._Status, self._Ip, self._Port, self._Service
+        return (
+            self._Logn,
+            self._Date,
+            self._User,
+            self._Status,
+            self._Ip,
+            self._Port,
+            self._Service,
+        )
