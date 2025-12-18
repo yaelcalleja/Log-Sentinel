@@ -2,33 +2,26 @@ import re
 
 
 class LogEntry:  # The father class maded to search for every important data on the file.
+
+    _Regexs = {}  # This will be filled by the polimorphism on each class
+
     def __init__(self, raw_line_text):
         # In case the parser failes, getting the default settings:
-        self._Logn = "Log 0"
         self._Date = "Jan 01 00:01:01"
         self._User = "Default"
         self._Status = "No-status"
         self._Ip = "0.0.0.0"
         self._Port = "0"
         self._Service = "No reachable"
-        self.__parse_the_line(raw_line_text)  # The method who search all the data
+        # Calling the method who fills all the data
+        self.__parse_the_line(raw_line_text)
 
     # The main method that builds the values from the text
     def __parse_the_line(self, line):
-        self._Logn = "Log"
-        # Dictionary of regexs for each value in the class
-        regexs = {
-            "_Date": r"^[A-Z]{1}[a-z]{2} [0-9]{2} (?:[0-9]{2}.){2}[0-9]{2}",
-            "_User": r"user ([a-z]+)|([a-z]+) from",
-            "_Status": r".( [A-Z][a-z]{1,15} [a-z]{1,})",
-            "_Ip": r"(([0-9]{1,3}\.){3}[0-9]{1,3})",
-            "_Port": r"port ([0-9]{1,5})",
-            "_Service": r"([a-z]{1,6}[1-9]{1,5})$",
-        }
-        """ 
+        """
         Iterating on every attribute and changing the default values for the regexs results
         """
-        for key, regex in regexs.items():
+        for key, regex in self._Regexs.items():
             match = re.search(regex, line)
             if match:
                 # We try to get only the capture group of the regex
@@ -45,7 +38,10 @@ class LogEntry:  # The father class maded to search for every important data on 
                 # If there was no value, put the field as empty
                 setattr(self, key, "Empty")
 
-    # A safe way to get the attributes.
+    """
+    Defining the getter methods, so we can obtain the data without
+    leaving the encapsulated data open.
+    """
 
     # Get the date.
     def get_date(self):
@@ -59,7 +55,7 @@ class LogEntry:  # The father class maded to search for every important data on 
     def get_status(self):
         return self._Status
 
-    # Get the ipu.
+    # Get the ip.
     def get_ip(self):
         return self._Ip
 
@@ -71,6 +67,7 @@ class LogEntry:  # The father class maded to search for every important data on 
     def get_service(self):
         return self._Service
 
+    # Get all attributes
     def get_all_attributes(self):
         return (
             self._Logn,
