@@ -31,6 +31,7 @@ Clone the repository:
 ```bash
 git clone [https://github.com/yaelcalleja/Log-Sentinel.git](https://github.com/yaelcalleja/Log-Sentinel.git)
 cd log-sentinel
+```
 
 No external dependencies are required. This project uses the standard Python library (re, abc).
 
@@ -55,6 +56,8 @@ try:
 except Exception as e:
     print(f"Error parsing log: {e}")
 
+```
+
 ## 🗺️ Roadmap
 
     [x] Implement Abstract Base Class structure.
@@ -70,5 +73,6 @@ except Exception as e:
 ## 🤝 Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements.
+
 ---
 Developed by Yael Reveles[badger] as part of the Winter Arc DevSecOps Roadmap.
