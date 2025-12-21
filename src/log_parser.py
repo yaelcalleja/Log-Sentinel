@@ -1,14 +1,13 @@
 from abc import ABC, abstractmethod
 import re
 
-
+"""
+Base class designed to be the engine for research on each subclass.
+It is indispensable for any subclass derived from this class to have
+its own regexs; otherwise, the code won't work.
+"""
 class LogEntry(ABC):
-    """
-    Base class designed to be the engine for research on each subclass.
-    It is indispensable for any subclass derived from this class to have
-    its own regexs; otherwise, the code won't work.
-    """
-
+    
     @property
     @abstractmethod
     def _Regexs(self):
