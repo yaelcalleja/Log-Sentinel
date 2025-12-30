@@ -29,8 +29,8 @@ The project is built on a parent-child hierarchy:
 Clone the repository:
 
 ```bash
-git clone [https://github.com/yaelcalleja/Log-Sentinel.git](https://github.com/yaelcalleja/Log-Sentinel.git)
-cd log-sentinel
+git clone https://github.com/yaelcalleja/Log-Sentinel.git
+cd Log-Sentinel
 ```
 
 No external dependencies are required. This project uses the standard Python library (re, abc).
