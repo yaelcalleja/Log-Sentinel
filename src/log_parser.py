@@ -23,21 +23,21 @@ class LogEntry(ABC):
     # The main method that builds the values from the text
     def __parse_the_line(self, line):
         """
-        Iterating on every attribute and setting the values for the regexs results.
+        Iterating on every regex and setting the values of the attributes to the regexs results.
         """
         for key, regex in self._Regexs.items():
             match = re.search(regex, line)
             if match:
                 if (
                     match.lastindex
-                ):  # We try to set only the last capture group of the regex on the value of the key
+                ):  # We try to set only the last capture group of the regex on the value for the key
                     found_value = match.group(match.lastindex)
                 else:  # In case there was no capture group but it have a match
                     found_value = match.group(0)
 
                 self.data[key] = found_value
             else:
-                # If there was no regex, fill the field as empty
+                # If there was no match, fill the field as empty
                 self.data[key] = "Empty"
 
     """
